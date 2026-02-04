@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>Minesweeper</h1>
+        <p>Left click reveals. Right click (or long press) flags mines.</p>
+      </header>
+
+      <section class="controls">
+        <div class="control-group">
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty">
+            <option value="easy">Easy (8×8, 10 mines)</option>
+            <option value="medium" selected>Medium (12×12, 24 mines)</option>
+            <option value="hard">Hard (16×16, 40 mines)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="custom-size">Custom size</label>
+          <div class="custom-inputs">
+            <input id="custom-size" type="number" min="6" max="24" value="12" />
+            <span>×</span>
+            <input id="custom-size-y" type="number" min="6" max="24" value="12" />
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="custom-mines">Mines</label>
+          <input id="custom-mines" type="number" min="5" max="99" value="24" />
+        </div>
+        <button id="new-game">New Game</button>
+      </section>
+
+      <section class="status-bar">
+        <div class="status-item">
+          <span class="label">Mines</span>
+          <span id="mine-count">0</span>
+        </div>
+        <div class="status-item">
+          <span class="label">Flags</span>
+          <span id="flag-count">0</span>
+        </div>
+        <div class="status-item">
+          <span class="label">Time</span>
+          <span id="timer">0</span>s
+        </div>
+        <div id="game-message" class="status-message"></div>
+      </section>
+
+      <div id="board" class="board" aria-live="polite"></div>
+    </div>
+
+    <footer>
+      <p>Tip: You can change difficulty or create a custom board size.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
